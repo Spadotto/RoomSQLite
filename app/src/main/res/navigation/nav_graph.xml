@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoryFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.roomsqlite.ui.category.CategoryFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_addEditCategoryFragment"
+            app:destination="@id/addEditCategoryFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditCategoryFragment"
+        android:name="com.example.roomsqlite.ui.add_edit_category.AddEditCategoryFragment"
+        android:label="add/edit category"
+        tools:layout="@layout/fragment_add_edit_category">
+        <argument
+            android:name="newCategory"
+            android:defaultValue="@null"
+            app:argType="com.example.roomsqlite.data.Category"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditItemFragment"
+        android:name="com.example.roomsqlite.ui.add_edit_item.AddEditItemFragment"
+        android:label="add/edit item"
+        tools:layout="@layout/fragment_add_edit_item">
+        <argument
+            android:name="newItem"
+            android:defaultValue="@null"
+            app:argType="com.example.roomsqlite.data.Item"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.roomsqlite.ui.item.ItemFragment"
+        android:label="Itens"
+        tools:layout="@layout/fragment_item">
+        <action
+            android:id="@+id/action_itemFragment_to_addEditItemFragment"
+            app:destination="@id/addEditItemFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+</navigation>
